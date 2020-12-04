@@ -1,0 +1,32 @@
+﻿@page "/{texto?}"
+@model IndexModel
+@{
+    ViewData["Title"] = "Meu Filme";
+}
+
+<div class="row">
+    <div class="col-sm">
+        <form>
+            <div class="form-group">
+                <label for="txtPesquisa">Pesquise seu filme</label>
+                <input type="text" class="form-control" require="" id="txtPesquisa" aria-describedby="pesquisaAjuda" autocomplete="off" value="@Model.Texto" placeholder="Pesquise seu filme">
+                <small id="pesquisaAjuda" class="form-text text-muted">Digite o filme que deseja achar.</small>
+            </div>
+            <button type="button" id="btnPesquisar" class="btn btn-primary">Pesquisar</button>
+        </form>
+    </div>
+</div>
+
+<div class="row mt-3" id="MeusFilmes">
+
+</div>
+
+
+<script src="~/js/index.js" charset="utf8"></script>
+<script src="~/js/filme.js" charset="utf8"></script>
+
+<script type="text/javascript">
+    $("#btnPesquisar").click(function () {
+        $("#MeusFilmes").html(templateIndex.PesquisarFilme($("#txtPesquisa").val()));
+    });
+</script>

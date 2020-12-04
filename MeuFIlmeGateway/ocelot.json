@@ -1,0 +1,60 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/v1/Filme/PesquisarFilme/{nomeDoFilme}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44397
+        }
+      ],
+      "UpstreamPathTemplate": "/filme/p/{nomeDoFilme}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "MeuFilme"
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/filme/ObterFilme/{filmeId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44397
+        }
+      ],
+      "UpstreamPathTemplate": "/filme/o/{filmeId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "MeuFilme"
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/credito/ObterCredito/{creditoId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44397
+        }
+      ],
+      "UpstreamPathTemplate": "/credito/o/{creditoId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "MeuFilme"
+    }
+
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "MeuFilme",
+      "TransformByOcelotConfig": false,
+      "Config": [
+        {
+          "Name": "MeuFilme",
+          "Version": "v1",
+          "Url": "https://localhost:44397/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "RequestIdKey": "OcRequestId"
+  }
+}
