@@ -49,7 +49,7 @@
         {
           "Name": "MeuFilme",
           "Version": "v1",
-          "Url": "https://localhost:44397/swagger/v1/swagger.json"
+          "Url": "https://meufilme20201204104848.azurewebsites.net/swagger/v1/swagger.json"
         }
       ]
     }

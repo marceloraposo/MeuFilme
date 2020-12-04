@@ -8,7 +8,7 @@
         var resultado = '';
         var linhasFilmes = [];
         var result = $.ajax({
-            url: "https://localhost:44391/filme/p/" + texto,
+            url: "https://meufilmegateway20201204104342.azurewebsites.net/filme/p/" + texto,
             type: "GET",
             contentType: "application/json",
             dataType: 'json',

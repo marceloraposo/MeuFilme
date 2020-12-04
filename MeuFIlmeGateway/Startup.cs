@@ -30,7 +30,7 @@ namespace MeuFIlmeGateway
             services.AddCors(o => o.AddPolicy("CorsGateway", builder =>
             {
                 builder
-                    .WithOrigins(new[] { "https://localhost:44312" })
+                    .WithOrigins(new[] { "https://meufilme.azurewebsites.net" })
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials().WithExposedHeaders("x-custom-header");
