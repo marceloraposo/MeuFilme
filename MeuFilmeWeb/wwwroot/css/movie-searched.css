@@ -1,0 +1,158 @@
+/********** MOVIE SEARCHED PAGE **********/
+/** HEADER **/
+/* Banner */
+.banner {
+    background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(../img/star-wars/yoda.jpg) top no-repeat;
+    background-size: cover;
+}
+
+@keyframes move-banner-title {
+    0% {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+    70% {
+        transform: scale(1.2);
+        text-shadow: 1px 1px 1px rgba(223, 165, 8, 0.7);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px), scale(1);
+        text-shadow: 0 -2px  rgba(0, 0, 0, .5);
+    }
+}
+
+/* Media Queries - Banner */
+@media(min-width: 1028px) {
+    .banner {background-attachment: fixed;}
+}
+
+@media(max-width: 550px) {
+    .banner-title {font-size: 2.5rem;}  
+}
+
+@media(max-width: 325px) {
+    .banner-title {font-size: 2.35rem;}
+}
+
+/* Height Control */
+@media(max-height: 420px) {
+    .banner-title {margin-top: 4rem;}
+}
+
+@media(max-height: 370px) {
+    .banner-title {margin-bottom: 1rem;}
+}
+/* end Banner */
+/** end HEADER **/
+
+/** RESULTS **/
+.results-content {
+    display: grid;
+    grid-template-columns: 38.5% 60%;
+    justify-content: space-between;
+}
+
+span#id-movie {font-family: 'Orbitron', sans-serif;}
+
+.results-movies-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: .8rem;
+}
+
+.results-titles {
+    font-size: 1.1rem;
+    color: var(--brown-color);
+    margin-bottom: .4rem;
+}
+
+.results-movies-found {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    /* justify-content: space-between; */
+    align-items: center;
+    margin-bottom: .8rem;
+}
+
+.movies-found-image img {
+    width: 80px;
+    height: 84px;
+    display: block;
+    border-radius: 2px;
+    transition: opacity .5s;
+}
+.movies-found-image a img:hover {opacity: .5;}
+
+.movies-found-title {
+    /* justify-self: start; */
+    margin-left: .6rem;
+}
+
+.movies-found-title a {transition: text-shadow .5s;}
+.movies-found-title a:hover {text-shadow: 1px 1px 3px #dd7d45;}
+
+/* Slider */
+.movies-item {
+    background-color: var(--mid-blue-color);
+    padding: 0 0 .5rem 0;
+    border-radius: 5px;
+    border: 2px solid black;
+    overflow: hidden;
+    margin: 0 7px;
+}
+
+.movies-image {position: relative; overflow: hidden;}
+
+.movies-image img {
+    width: 100%;
+    display: block;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.movies-overlay {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: var(--transition-default);
+}
+.movies-image:hover .movies-overlay {
+    opacity: .7;
+    transform: translateY(0%);
+}
+
+.movies-overlay h3 {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    color: var(--black-color);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.movies-info {
+    text-align: center;
+    font-size: .84rem;
+}
+
+.movies-info h2 {
+    padding-top: .5rem;
+    letter-spacing: 1.45px;
+    color: var(--mid-white-color);
+    font-family: 'Raleway', sans-serif;
+    border-top: 2px solid var(--black-color);
+}
+
+/* Media Queries - Results */
+@media(max-width: 880px) {
+    .results-content {grid-template-columns: 100%;}
+
+    .results-movies {margin-bottom: 1.3rem;}
+}
+/* end RESULTS */
+/********** end MOVIE SEARCHED PAGE **********/

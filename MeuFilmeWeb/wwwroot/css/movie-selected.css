@@ -1,0 +1,228 @@
+/********** MOVIE SELECTED PAGE **********/
+/** HEADER **/
+/* Banner */
+.banner {    
+    background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(../img/star-wars/walkers.jpg) top no-repeat;
+    background-size: cover;
+}
+
+@keyframes move-banner-title {
+    0% {
+        opacity: 0;
+        transform: translateX(-70px);
+        transform: translateY(-70px);
+    }
+    70% {
+        transform: scale(1.2);
+        text-shadow: 1px 1px 1px rgba(223, 165, 8, 0.7);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px), translateY(0px) scale(1);
+        text-shadow: 0 -2px  rgba(0, 0, 0, .5);
+    }
+}
+/* end Banner */
+/** end HEADER **/
+
+/** MOVIE SELECTED **/
+.selected-results {padding: 4rem 2.8rem 3rem 2.8rem;}
+
+/* Movie Header */
+.selected {
+    display: grid;
+    grid-template-columns: 50% 48%;
+    column-gap: 3rem;
+    justify-content: space-between;    
+}
+
+.selected-movie {    
+    padding: 0;
+    border-radius: 5px;
+}
+
+.selected-movie-header {
+    padding: 1.8rem 1rem 1.6rem 1rem;
+    color: var(--mid-white-color);
+    border: 2px solid var(--black-color);
+    border-bottom-width: 1px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #525252;
+}
+
+#id-selected-movie {
+    font-size: 1.2rem;
+    margin-right: 5px;
+}
+
+#movie-stars {
+    margin-right: 5px;
+    color: var(--light-orange-color);
+}
+.selected-movie-image img {
+    /* object-fit: cover; */
+    display: block;
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 2px solid var(--black-color);
+}
+
+.movies-found-image img {
+    width: 80px;
+    height: 80px;
+    display: block;
+}
+
+.movies-found-title {margin-left: .6rem;}
+
+/* Slider */
+.star-wars-content {padding: 0 1rem;}
+
+.movies-item {
+    background-color: var(--mid-blue-color);
+    padding: 0 0 .5rem 0;
+    border-radius: 5px;
+    border: 2px solid black;
+    overflow: hidden;
+    margin: 0 7px;
+    max-height: 70%;
+}
+
+.movies-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.movies-image img {
+    width: 100%;
+    display: block;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.movies-overlay {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: var(--transition-default);
+}
+.movies-image:hover .movies-overlay {
+    opacity: .7;
+    transform: translateY(0%);
+}
+
+.movies-overlay h3 {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    color: var(--black-color);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.movies-info {
+    text-align: center;
+    font-size: .84rem;
+}
+
+.movies-info h2 {
+    padding-top: .5rem;
+    letter-spacing: 1.45px;
+    color: var(--mid-white-color);
+    font-family: 'Raleway', sans-serif;
+    border-top: 2px solid var(--black-color);
+}
+
+/** MOVIE CREDITS **/
+/* Movie Info */
+.movie-credits {
+    background-color: var(--mid-gray-color);
+    display: grid;
+    grid-template-columns: 58% 38%;
+    column-gap: 3rem;
+    margin-top: -1rem;
+    padding: 2rem 2.8rem 2.5rem 2.8rem;
+}
+
+.movie-info {padding: 0 .5rem;}
+
+.movie-info-item {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.movie-info-title {
+    font-size: .95rem;
+    margin-right: 5px;
+}
+
+.movie-info-description {
+    font-size: .9rem;
+    font-weight: normal;
+}
+
+#movie-summary {line-height: 1.3;}
+
+#movie-score, #movie-stars {font-size: .95rem;}
+
+/* Recommended Movies */
+.movie-credits-title, .recommended-movies-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.recommended-movies-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.recommended-movies-image img {
+    width: 80px;
+    height: 97px;
+    display: block;
+    margin-right: .6rem;
+    border-radius: 2px;
+}
+
+/* Media Queries - Selected */
+@media(max-width: 880px) {
+    .selected-movie {
+        margin-bottom: 2rem;
+        padding: 0 .5rem;
+    }
+
+    .selected {grid-template-columns: 100%;}  
+
+    .star-wars-content {padding: 0 0rem;}
+
+    .movie-credits {grid-template-columns: 100%;}
+
+    .recommended-movies {margin-top: 2rem;}
+}
+
+@media(max-width: 550px) {
+    .selected-movie-header {padding: 1.2rem 1rem;}
+
+    #id-selected-movie {font-size: 1.1rem;}
+}
+
+@media(max-width: 414px) {
+    .selected-movie-header {padding: .8rem;}
+
+    #id-selected-movie {font-size: 1rem;}
+}
+
+@media(max-width: 375px) {
+    .selected-movie-header {padding: .7rem;}
+}
+/* end MOVIE SELECTED */
+/********** end MOVIE SELECTED PAGE **********/

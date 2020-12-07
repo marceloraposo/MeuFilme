@@ -1,0 +1,200 @@
+/********** HOME PAGE **********/
+/** HEADER **/
+#navigation.bg-black, #navigation2.bg-black { background-color: var(--black-color); }
+/** end HEADER **/
+
+/** SLIDER **/
+section.slider-container { padding: 0 !important; }
+
+/* Trailer Button */
+.watch-trailer {    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 71;
+}
+
+.btn-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-icon .fa-play {
+    color: #ff9c2a;
+    font-size: 2.3rem;
+    border: 3px solid #ff9c2a;
+    border-radius: 50%;
+    padding: 1.2rem;
+    padding-left: 1.48rem;
+    cursor: pointer;
+    transition: all .5s;
+}
+.btn-icon:hover .fa-play {
+    color: #2e76c9;
+    border-color:#2e76c9;
+    background: rgba(0, 0, 0, .5);
+    transform: scale(1.1);
+}
+
+.btn-icon-text {
+    background: rgba(0, 0, 0, .55);
+    color: var(--white-color);
+    padding: .5rem .6rem;
+    font-size: .95rem;
+    border-radius: 12px;
+    margin-top: .2rem;
+    opacity: .5;
+    transition: all .5s;
+}
+.btn-icon:hover .btn-icon-text {
+    font-size: 1rem;
+    opacity: 1;
+}
+
+/* Media Queries - Trailer Button */
+@media(max-width: 768px) {
+    .btn-icon .fa-play { font-size: 2.1rem; }
+}
+
+@media(max-width: 420px) {
+    .btn-icon .fa-play {
+        font-size: 1.5rem;
+        padding: .8rem;
+        padding-left: 1rem;
+    }
+}
+
+@media(max-width: 375px) {
+    .btn-icon .fa-play { font-size: 1.4rem; }
+
+    .btn-icon-text {
+        padding: .4rem .5rem;
+        font-size: .8rem;
+        margin-top: 0rem;
+    }
+}
+
+@media(max-width: 360px) {
+    .btn-icon .fa-play { font-size: 1.4rem; }
+
+    .btn-icon-text { font-size: .75rem; }
+}
+
+@media(max-width: 325px) {
+    .watch-trailer { display: none; }
+}
+/** end SLIDER **/
+
+/** ABOUT US **/
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: 3rem;
+}
+
+.about-title {
+    font-family: 'Raleway', sans-serif;
+    margin-top: -12px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.about-btn {
+    padding: .5rem .7rem;
+    background-color:var(--dark-blue-color);
+    border-radius: 5px;
+    color: var(--mid-gray-color);
+    font-size: 1.1rem;
+    border: 2px solid var(--orange-color);
+    display: inline-block;
+    margin-top: 5px;
+    transition: var(--transition-default);
+}
+.about-btn:hover {
+    color: var(--white-color);
+    background-color:var(--light-blue-color);
+    transform: translateY(0px);
+}
+
+.about-btn::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    border-radius: 7px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: var(--transition-default);
+}
+.about-btn:hover::after {
+    background-color: var(--white-color);
+    transform: scale(1.4);
+    opacity: 0;
+}
+
+.about-image img {
+    display: block;
+    width: 100%;
+    border: 2px solid var(--black-color);
+    border-radius: 8px;
+}
+
+/* Media Queries - About Us */
+@media(max-width: 900px) {
+    .about-title { margin-top: -7px !important; }
+
+    .about-text p { line-height: 1.5; }
+
+    .about-image img { margin-bottom: 1rem !important; }
+}
+
+@media(max-width: 768px) {
+    .about-content { grid-template-columns: 1fr; }
+
+    .about-title { margin-top: 0px !important; }
+
+    .about-text p { line-height: 1.4; }
+
+    .about-btn { padding: .4rem; }
+
+    .about-image img { margin: 2rem 0 0 0 !important; }
+}
+
+@media(min-width: 1580px) {
+    .about-title { font-size: 1.8rem; }
+
+    .about-text p {
+        font-size: 1.4rem !important;
+        line-height: 1.8;
+    }
+
+    .about-btn {
+        padding: .7rem;
+        font-size: 1.4rem;
+    }
+}
+
+@media(min-width: 1980px) {
+    .about-title { font-size: 2rem; }
+
+    .about-text p {
+        font-size: 1.6rem !important;
+        line-height: 2;
+    }
+
+    .about-btn {
+        padding: .8rem;
+        font-size: 1.48rem;
+    }
+}
+/** end ABOUT US **/
+/********** end HOME PAGE **********/

@@ -42,19 +42,34 @@
         var resultado = '';
         moment.locale('pt-br');
         for (var i = 0; i < linhasFilmes.length; i++) {
-            resultado += '<div class="col-sm mt-sm-3">';
-            resultado += '<div class="card" style="width: 18rem;">';
+            //resultado += '<div class="col-sm mt-sm-3">';
+            //resultado += '<div class="card" style="width: 18rem;">';
+            //if (linhasFilmes[i].poster != null && linhasFilmes[i].poster != undefined && linhasFilmes[i].poster != '') {
+            //    resultado += '    <img class="card-img-top" src="https://image.tmdb.org/t/p/original/' + linhasFilmes[i].poster + '" alt="' + linhasFilmes[i].nome + '">';
+            //}
+            //resultado += '        <div class="card-body">';
+            //resultado += '            <h5 class="card-title">' + linhasFilmes[i].nome + ' (' + moment(linhasFilmes[i].dataLancamento).format('YYYY') + ')</h5>';
+            //resultado += '            <small>' + linhasFilmes[i].nomeOriginal + ' (' + linhasFilmes[i].votosMedia + ')</small>';
+            //resultado += '            <p class="card-text">' + linhasFilmes[i].resumo + '</p>';
+            //resultado += '            <a href="Filme/' + linhasFilmes[i].id + '" class="btn btn-primary">Mais</a>';
+            //resultado += '        </div>';
+            //resultado += '</div>';
+            //resultado += '</div>';
+            resultado += '<div class="results-movies-found" id="movie-found-1">';
             if (linhasFilmes[i].poster != null && linhasFilmes[i].poster != undefined && linhasFilmes[i].poster != '') {
-                resultado += '    <img class="card-img-top" src="https://image.tmdb.org/t/p/original/' + linhasFilmes[i].poster + '" alt="' + linhasFilmes[i].nome + '">';
+                resultado += '    <div class="movies-found-image">';
+                resultado += '            <a href="Filme/' + linhasFilmes[i].id + '">';
+                resultado += '    <img  src="https://image.tmdb.org/t/p/original/' + linhasFilmes[i].poster + '" alt="' + linhasFilmes[i].nome + '">';
+                resultado += '            </a>';
+                resultado += '        </div>';
             }
-            resultado += '        <div class="card-body">';
-            resultado += '            <h5 class="card-title">' + linhasFilmes[i].nome + ' (' + moment(linhasFilmes[i].dataLancamento).format('YYYY') + ')</h5>';
-            resultado += '            <small>' + linhasFilmes[i].nomeOriginal + ' (' + linhasFilmes[i].votosMedia + ')</small>';
-            resultado += '            <p class="card-text">' + linhasFilmes[i].resumo + '</p>';
-            resultado += '            <a href="Filme/' + linhasFilmes[i].id + '" class="btn btn-primary">Mais</a>';
+            resultado += '';
+            resultado += '        <div class="movies-found-title">';
+            resultado += '            <a href="Filme/' + linhasFilmes[i].id + '">';
+            resultado += '            <p>' + linhasFilmes[i].nome + ' (' + moment(linhasFilmes[i].dataLancamento).format('YYYY') + ')</p>';
+            resultado += '            </a>';
             resultado += '        </div>';
-            resultado += '</div>';
-            resultado += '</div>';
+            resultado += '    </div>';
         }
 
         return resultado;

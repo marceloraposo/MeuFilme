@@ -5,8 +5,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 44397
+          "Host": "meufilme20201204104848.azurewebsites.net"
         }
       ],
       "UpstreamPathTemplate": "/filme/p/{nomeDoFilme}",
@@ -18,8 +17,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 44397
+          "Host": "meufilme20201204104848.azurewebsites.net"
         }
       ],
       "UpstreamPathTemplate": "/filme/o/{filmeId}",
@@ -31,8 +29,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 44397
+          "Host": "meufilme20201204104848.azurewebsites.net"
         }
       ],
       "UpstreamPathTemplate": "/credito/o/{creditoId}",
@@ -55,6 +52,7 @@
     }
   ],
   "GlobalConfiguration": {
+    "BaseUrl": "https://meufilmegateway20201204104342.azurewebsites.net",
     "RequestIdKey": "OcRequestId"
   }
 }

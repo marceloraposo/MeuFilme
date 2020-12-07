@@ -1,0 +1,62 @@
+/** HEADER **/
+/* Banner */
+section.banner-home {padding: 0 !important;}
+
+.banner {
+    width: 100%;
+    height: 75.5vh;
+    flex-direction: column;  /*used center class*/
+    background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(../img/star-wars/walkers.jpg) top no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+.banner-title {
+    font-size: 3rem;
+    font-family: 'Orbitron', sans-serif;
+    color: var(--mid-gray-color);
+    letter-spacing: 3px;
+    animation: move-banner-title 2.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes move-banner-title {
+    0% {
+        opacity: 0;
+        transform: translateX(-70px);
+        transform: translateY(-70px);
+    }
+    70% {
+        transform: scale(1.2);
+        text-shadow: 1px 1px 1px rgba(223, 165, 8, 0.7);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px), translateY(0px) scale(1);
+        text-shadow: 0 -2px  rgba(0, 0, 0, .5);
+    }
+}
+
+/* Media Queries - Banner */
+@media(min-width: 1028px) {
+    .banner {background-attachment: fixed;}
+}
+
+@media(max-width: 550px) {
+    .banner-title {font-size: 2.5rem;}  
+}
+
+@media(max-width: 325px) {
+    .banner-title {font-size: 2.35rem;}
+}
+
+/* Height Control */
+@media(max-height: 420px) {
+    .banner-title {margin-top: 4rem;}
+}
+
+@media(max-height: 370px) {
+    .banner-title {margin-bottom: 1rem;}
+}
+/* end Banner */
+/** end HEADER **/

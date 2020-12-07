@@ -4,7 +4,7 @@
     ViewData["Title"] = "Meu Filme";
 }
 
-<div class="row">
+@*<div class="row">
     <div class="col-sm">
         <form>
             <div class="form-group">
@@ -19,11 +19,110 @@
 
 <div class="row mt-3" id="MeusFilmes">
 
-</div>
+</div>*@
+
+<!--RESULTS-->
+<section class="results">
+    <!--Results Title-->
+    <div class="section-title center">
+        <i class="fab fa-searchengin fa-2x"></i>
+        <h1>Buscas</h1>
+        <i class="fab fa-searchengin fa-2x"></i>
+    </div>
+    <!--end Results Title-->
+    <!--Results Content-->
+    <div class="results-content width-section">
+        <!--Titles Found-->
+        <div class="results-movies">
+            <h2 class="results-movies-title">Resultados por <span id="id-movie"></span></h2>
+
+            <h2 class="results-titles">Títulos</h2>
+
+            <div id="MeusFilmes">
+
+            </div>
+        </div>
+        <!--end Titles Found-->
+        <!--Slider Movies-->
+        <div class="star-wars-content width-section owl-carousel owl-theme">
+            <article class="movies-item">
+                <div class="movies-image">
+                    <img src="img/star-wars/star_wars7.jpg" alt="The Force Awakens">
+
+                    <div class="movies-overlay">
+                        <h3>The Force Awakens</h3>
+                    </div>
+                </div>
+
+                <div class="movies-info">
+                    <h2>Star Wars VII</h2>
+                </div>
+            </article>
+
+            <article class="movies-item">
+                <div class="movies-image">
+                    <img src="img/star-wars/star_wars9.jpg" alt="The Rise of Skywalker">
+
+                    <div class="movies-overlay">
+                        <h3>The Rise of Skywalker</h3>
+                    </div>
+                </div>
+
+                <div class="movies-info">
+                    <h2>Star Wars IX</h2>
+                </div>
+            </article>
+
+            <article class="movies-item">
+                <div class="movies-image">
+                    <img src="img/star-wars/star_wars4.jpg" alt="A New Hope">
+
+                    <div class="movies-overlay">
+                        <h3>A New Hope</h3>
+                    </div>
+                </div>
+
+                <div class="movies-info">
+                    <h2>Star Wars IV</h2>
+                </div>
+            </article>
+
+            <article class="movies-item">
+                <div class="movies-image">
+                    <img src="img/star-wars/star_wars6.jpg" alt="The Return of the Jedi">
+
+                    <div class="movies-overlay">
+                        <h3>The Return of the Jedi</h3>
+                    </div>
+                </div>
+
+                <div class="movies-info">
+                    <h2>Star Wars VI</h2>
+                </div>
+            </article>
+
+            <article class="movies-item">
+                <div class="movies-image">
+                    <img src="img/star-wars/star_wars8.jpg" alt="The Empire strikes Back">
+
+                    <div class="movies-overlay">
+                        <h3>The Empire strikes Back</h3>
+                    </div>
+                </div>
+
+                <div class="movies-info">
+                    <h2>Star Wars V</h2>
+                </div>
+            </article>
+        </div>
+        <!--end Slider Movies-->
+    </div>
+    <!--end Results Content-->
+</section>
+<!--end RESULTS-->
 
 
 <script src="~/js/index.js" charset="utf8"></script>
-<script src="~/js/filme.js" charset="utf8"></script>
 
 <script type="text/javascript">
     $("#btnPesquisar").click(function () {
