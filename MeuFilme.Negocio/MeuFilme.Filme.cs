@@ -88,7 +88,7 @@ namespace MeuFilme.Negocio
             ElencoDto elencoDto = null;
 
             if (item != null)
-                elencoDto = new ElencoDto { CreditoId = item.CreditId, Nome = item.Name, Personagem = item.Character };
+                elencoDto = new ElencoDto { CreditoId = item.CreditId, Nome = item.Name, Personagem = item.Character, Foto = item.ProfilePath };
 
             return elencoDto;
         }
@@ -110,7 +110,7 @@ namespace MeuFilme.Negocio
             EquipeDto equipeDto = null;
 
             if (item != null)
-                equipeDto = new EquipeDto { CreditoId = item.CreditId, Nome = item.Name, Cargo = item.Job, Departamento = item.Department };
+                equipeDto = new EquipeDto { CreditoId = item.CreditId, Nome = item.Name, Cargo = item.Job, Departamento = item.Department, Foto = item.ProfilePath };
 
             return equipeDto;
         }
