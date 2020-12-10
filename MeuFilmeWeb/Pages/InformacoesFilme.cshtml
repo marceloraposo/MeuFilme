@@ -257,6 +257,16 @@
             </div>
 
             <div class="movie-info-item">
+                <span class="movie-info-title">Genêro(s): </span>
+                <h3 id="movie-cast" class="movie-info-description">
+                    @foreach (var genero in @Model.filme.Genero)
+                    {
+                        @string.Format("{0},", genero.Nome);
+                    }
+                </h3>
+            </div>
+
+            <div class="movie-info-item">
                 <span class="movie-info-title">Lançamento: </span>
                 @if (@Model.filme.DataLancamento.HasValue)
                 {
@@ -307,32 +317,6 @@
                 </div>
             }
 
-            @*<div class="recommended-movies-item" id="movie-recommended-1">
-                    <div class="recommended-movies-image">
-                        <img src="~/img/movies-found/back-future.jpg" alt="Star Wars - A New Hope">
-                    </div>
-                    <a href="/Filme/105">
-                        <p>De Volta para o Futuro (1985)</p>
-                    </a>
-                </div>
-
-                <div class="recommended-movies-item" id="movie-recommended-2">
-                    <div class="recommended-movies-image">
-                        <img src="~/img/movies-found/back-future-2.jpg" alt="Star Wars - The Empire Strikes Back">
-                    </div>
-                    <a href="/Filme/165">
-                        <p>De Volta para o Futuro II (1989)</p>
-                    </a>
-                </div>
-
-                <div class="recommended-movies-item" id="movie-recommended-3">
-                    <div class="recommended-movies-image">
-                        <img src="~/img/movies-found/back-future-3.jpg" alt="Star Wars - The Force Awakens">
-                    </div>
-                    <a href="/Filme/196">
-                        <p>De Volta para o Futuro III (1990)</p>
-                    </a>
-                </div>*@
         </div>
         <!--end Recommended Movies-->
     </section>

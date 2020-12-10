@@ -15,7 +15,7 @@ namespace MeuFilme.Negocio.Data
         /// <returns></returns>
         public static SearchContainer<SearchMovie> PesquisarFilme(string pesquisa)
         {
-            return new TMDbClient(Conexao.APIKEY_TMDBLIB).SearchMovieAsync(pesquisa, "pt").Result;
+            return new TMDbClient(Conexao.APIKEY_TMDBLIB).SearchMovieAsync(pesquisa, "br").Result;
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace MeuFilme.Negocio.Data
 
         public static Movie ObterFilme(string filmeId)
         {
-            return new TMDbClient(Conexao.APIKEY_TMDBLIB).GetMovieAsync(filmeId,"pt").Result;
+            return new TMDbClient(Conexao.APIKEY_TMDBLIB).GetMovieAsync(filmeId,"br").Result;
         }
     }
 }
