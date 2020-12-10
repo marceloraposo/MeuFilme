@@ -1,32 +1,303 @@
 ﻿@page "/{texto?}"
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
 @model IndexModel
 @{
-    ViewData["Title"] = "Meu Filme";
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @if (string.IsNullOrEmpty(@Model.pesquisa))
+    {
+    <title>Filmes Favoritos</title>
+    }
+    else
+    {
+    <title>Filmes Favoritos - Pesquisa por: @Model.pesquisa</title>
+    }
 
-<div class="row">
-    <div class="col-sm">
-        <form>
-            <div class="form-group">
-                <label for="txtPesquisa">Pesquise seu filme</label>
-                <input type="text" class="form-control" require="" id="txtPesquisa" aria-describedby="pesquisaAjuda" autocomplete="off" value="@Model.Texto" placeholder="Pesquise seu filme">
-                <small id="pesquisaAjuda" class="form-text text-muted">Digite o filme que deseja achar.</small>
+    <!--Favicon-->
+    <link rel="icon" type="image/ico" sizes="57x45" href="~/img/logo/favicon.ico">
+
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!--Awesome-->
+    <link rel="stylesheet" href="~/fontawesome-5.13/css/all.css">
+
+    <!--Styles-->
+    <link rel="stylesheet" href="~/css/main.css">
+    <link rel="stylesheet" href="~/css/banner.css">
+    <link rel="stylesheet" href="~/css/movie-searched.css">
+
+    <!--OWL CSS-->
+    <link rel="stylesheet" href="~/owl/owl.theme.default.css">
+    <link rel="stylesheet" href="~/owl/owl.carousel.min.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVKZ32S45H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-QVKZ32S45H');
+    </script>
+</head>
+<body>
+    <!--HEADER-->
+    <header id="favorites">
+        <!--Logo-->
+        <div class="logo">
+            <img src="~/img/logo/media.png" alt="Logo">
+        </div>
+
+        <!--WhatsApp and Messenger-->
+        <div class="contacts-nav">
+            <div class="whatsapp">
+                <a href="https://api.whatsapp.com/send?phone=551199854XXXX" target="_blank">WhatsApp</a>
             </div>
-            <button type="button" id="btnPesquisar" class="btn btn-primary">Pesquisar</button>
+
+            <div class="messenger">
+                <a href="https://www.messenger.com/t/christiandevezas" target="_blank">Messenger</a>
+            </div>
+        </div>
+
+        <!--Search-->
+        <form class="search" method="post">
+            <input type="text" id="name-movie" name="texto" autocomplete="off" value="@Model.pesquisa" placeholder="procure seu filme">
+            <button input type="submit" asp-page-handler="Submit">
+                <i class="fas fa-search"></i>
+            </button>
         </form>
-    </div>
-</div>
 
-<div class="row mt-3" id="MeusFilmes">
+        <!--Navigation-->
+        <nav id="navigation">
+            <!--Main Menu-->
+            @*<ul class="main-menu center">
+                    <li><a href="/">Home</a></li>
+                </ul>*@
 
-</div>
+            <!--SideNav-->
+            <ul id="navbar" class="side-nav">
+                <li><a href="/">Home</a></li>
+            </ul>
 
+            <!--Main Menu button-->
+            <button class="main-menu-btn">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+            </button>
+        </nav>
+        <!--end Navigation-->
+        <!--Banner-->
+        <section class="banner-home">
+            <div class="banner center">
+                <h1 class="banner-title marg-bottom">Star Wars</h1>
+            </div>
+        </section>
+        <!--end Banner-->
+    </header>
+    <!--end HEADER-->
+    <!--RESULTS-->
+    <section class="results">
+        <!--Results Title-->
+        <div class="section-title center">
+            <i class="fab fa-searchengin fa-2x"></i>
+            <h1>Buscas</h1>
+            <i class="fab fa-searchengin fa-2x"></i>
+        </div>
+        <!--end Results Title-->
+        <!--Results Content-->
+        <div class="results-content width-section">
+            <!--Titles Found-->
+            <div class="results-movies">
+                <h2 class="results-movies-title">Resultados por <span id="id-movie">@Model.pesquisa</span></h2>
 
-<script src="~/js/index.js" charset="utf8"></script>
-<script src="~/js/filme.js" charset="utf8"></script>
+                <h2 class="results-titles">Títulos</h2>
 
-<script type="text/javascript">
-    $("#btnPesquisar").click(function () {
-        $("#MeusFilmes").html(templateIndex.PesquisarFilme($("#txtPesquisa").val()));
-    });
-</script>
+                @foreach (var filme in @Model.filmes)
+                {
+                    <div class="results-movies-found" id="movie-found-@filme.Id">
+                        @if (!string.IsNullOrEmpty(@filme.Poster))
+                        {
+                            <div class="movies-found-image">
+                                <a href="/Filme/@filme.Id/@Model.pesquisa">
+                                    <img src="@string.Format("https://image.tmdb.org/t/p/w92{0}",@filme.Poster)" alt="@filme.Nome">
+                                </a>
+                            </div>
+                        }
+
+                        <div class="movies-found-title">
+                            <a href="/Filme/@filme.Id/@Model.pesquisa">
+                                @if (@filme.DataLancamento.HasValue)
+                                {
+                                    <p>@filme.Nome (@filme.DataLancamento.Value.Year)</p>
+                                }
+                                else
+                                {
+                                    <p>@filme.Nome</p>
+                                }
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+            <!--end Titles Found-->
+            <!--Slider Movies-->
+            <div class="star-wars-content width-section owl-carousel owl-theme">
+                <article class="movies-item">
+                    <div class="movies-image">
+                        <img src="~/img/star-wars/star_wars7.jpg" alt="The Force Awakens">
+
+                        <div class="movies-overlay">
+                            <h3>The Force Awakens</h3>
+                        </div>
+                    </div>
+
+                    <div class="movies-info">
+                        <h2>Star Wars VII</h2>
+                    </div>
+                </article>
+
+                <article class="movies-item">
+                    <div class="movies-image">
+                        <img src="~/img/star-wars/star_wars9.jpg" alt="The Rise of Skywalker">
+
+                        <div class="movies-overlay">
+                            <h3>The Rise of Skywalker</h3>
+                        </div>
+                    </div>
+
+                    <div class="movies-info">
+                        <h2>Star Wars IX</h2>
+                    </div>
+                </article>
+
+                <article class="movies-item">
+                    <div class="movies-image">
+                        <img src="img/star-wars/star_wars4.jpg" alt="A New Hope">
+
+                        <div class="movies-overlay">
+                            <h3>A New Hope</h3>
+                        </div>
+                    </div>
+
+                    <div class="movies-info">
+                        <h2>Star Wars IV</h2>
+                    </div>
+                </article>
+
+                <article class="movies-item">
+                    <div class="movies-image">
+                        <img src="~/img/star-wars/star_wars6.jpg" alt="The Return of the Jedi">
+
+                        <div class="movies-overlay">
+                            <h3>The Return of the Jedi</h3>
+                        </div>
+                    </div>
+
+                    <div class="movies-info">
+                        <h2>Star Wars VI</h2>
+                    </div>
+                </article>
+
+                <article class="movies-item">
+                    <div class="movies-image">
+                        <img src="~/img/star-wars/star_wars8.jpg" alt="The Empire strikes Back">
+
+                        <div class="movies-overlay">
+                            <h3>The Empire strikes Back</h3>
+                        </div>
+                    </div>
+
+                    <div class="movies-info">
+                        <h2>Star Wars V</h2>
+                    </div>
+                </article>
+            </div>
+            <!--end Slider Movies-->
+        </div>
+        <!--end Results Content-->
+    </section>
+    <!--end RESULTS-->
+    <!--SOCIAL-->
+    <section class="social">
+        <div class="social-content width-section">
+            <div class="social-media">
+                <h2 class="social-media-title">Technologia</h2>
+                <p class="social-media-para marg-bottom">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quos iusto nemo non quas  pariatur iure avante more strength quae odt greatfull consectetur!</p>
+                <div class="social-media-icons">
+                    <a href="https://twitter.com/login?lang=pt" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://pt-br.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/?hl=pt-br" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://br.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+
+                <ul class="social-media-nav">
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+
+            <div class="social-media">
+                <h2 class="social-media-title">Tem perguntas?</h2>
+                <p class="social-media-para marg-bottom">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quos iusto nemo non quas  pariatur iure avante more strength quae odt greatfull consectetur!</p>
+                <div class="social-media-contact marg-bottom">
+                    <i class="fas fa-envelope"></i>
+                    <p>website@gmail.com</p>
+                </div>
+                <div class="social-media-contact marg-bottom">
+                    <i class="fas fa-phone"></i>
+                    <p>11 99854-XXXX</p>
+                </div>
+                <div class="social-media-contact">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Jardim Paulista, São Paulo</p>
+                </div>
+            </div>
+
+            <div class="social-media">
+                <h2 class="social-media-title">Horários abertos</h2>
+                <p class="social-media-para marg-bottom">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quos iusto nemo non quas  pariatur iure avante more strength quae odt greatfull consectetur!</p>
+                <div class="social-media-schedules">
+                    <div class="social-media-days">
+                        <p>Semana</p>
+                        <p class="marg-top">Sábado</p>
+                        <p class="marg-top">Domingo</p>
+                    </div>
+                    <div class="social-media-hours">
+                        <p>8h - 18h</p>
+                        <p class="marg-top">9h - 13h</p>
+                        <p class="marg-top">Fechado</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Link to top -->
+            <a class="link-top" href="#favorites"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </section>
+    <!--end SOCIAL-->
+    <!--FOOTER-->
+    <footer>
+        <p><span>&copy;</span> Filmes Favoritos <span id="date"></span></p>
+    </footer>
+    <!--end FOOTER-->
+    <!--SCRIPTS-->
+    <!--jQuery-->
+    <script src="~/js/jquery-3.5.js"></script>
+
+    <!--Main-->
+    <script src="~/js/main.js"></script>
+
+    <!--Owl-->
+    <script src="~/owl/owl.carousel.min.js"></script>
+    <script src="~/js/owl.js"></script>
+    <!--end SCRIPTS-->
+</body>
+</html>

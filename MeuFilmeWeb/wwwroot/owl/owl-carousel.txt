@@ -1,0 +1,11 @@
+
+There is an issue in the owl carousel version released on March 2018.
+In the "owl.carousel.min.css" file, the value of "touch-action" property needs to be changed from "none" to "auto".
+
+Before
+owl-carousel.owl-drag .owl-item{-ms-touch-action:none;touch-action:none;
+
+After
+owl-carousel.owl-drag .owl-item{-ms-touch-action:auto;touch-action:auto;
+
+This change solved the problem with touch screen devices.

@@ -3,7 +3,6 @@ using MeuFilme.Negocio.Data;
 using MeuFilme.Transporte;
 using System;
 using System.Collections.Generic;
-using TMDbLib.Objects.Credit;
 using TMDbLib.Objects.General;
 using TMDbLib.Objects.Movies;
 using TMDbLib.Objects.Search;

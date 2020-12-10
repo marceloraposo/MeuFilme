@@ -58,15 +58,6 @@ namespace MeuFIlmeGateway
 
             app.UseRouting();
 
-            //app.Use(async (c, n) =>
-            //{
-            //    c.Response.Headers.Add("Access-Control-Allow-Origin", "*");
-            //    c.Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization, Accept, X-Requested-With,X-Foo");
-            //    c.Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-            //    c.Response.Headers.Add("X-Xss-Protection", "1");
-            //    await n.Invoke();
-            //});
-
             app.UseCors("CorsGateway");
 
             app.UseEndpoints(endpoints =>

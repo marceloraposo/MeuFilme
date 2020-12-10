@@ -1,24 +1,60 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MeuFilmeWeb.Model;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.IO;
+using System.Net;
 
 namespace MeuFilmeWeb.Pages
 {
     public class IndexModel : PageModel
     {
-        [BindProperty(SupportsGet = true)]
-        public string Texto { get; set; }
+        public List<FilmeModel> filmes { get; set; }
+        public string pesquisa { get; set; }
 
-        private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel()
         {
-            _logger = logger;
+            filmes = new List<FilmeModel>();
         }
 
         public void OnGet(string texto)
         {
-            Texto = string.IsNullOrEmpty(texto) ? string.Empty : texto;
+            if (!string.IsNullOrEmpty(texto))
+            {
+                pesquisa = texto;
+                filmes = PesquisarFilme(texto);
+            }
+        }
+
+        public void OnPostSubmit(string texto)
+        {
+            if (!string.IsNullOrEmpty(texto))
+            {
+                pesquisa = texto;
+                filmes = PesquisarFilme(texto);
+            }
+        }
+
+        public static List<FilmeModel> PesquisarFilme(string texto)
+        {
+            List<FilmeModel> listaFilme = new List<FilmeModel>();
+            HttpWebRequest requisicaoWeb = WebRequest.CreateHttp(string.Format("{0}/{1}", "https://meufilmegateway20201204104342.azurewebsites.net/filme/p", texto));
+            requisicaoWeb.Method = "GET";
+            using (var resposta = requisicaoWeb.GetResponse())
+            {
+                Stream streamDados = resposta.GetResponseStream();
+                StreamReader reader = new StreamReader(streamDados);
+                string objResponse = reader.ReadToEnd();
+                foreach (Newtonsoft.Json.Linq.JToken item in ((Newtonsoft.Json.Linq.JObject)(JsonConvert.DeserializeObject<object>(objResponse)))["collection"])
+                {
+                    listaFilme.Add(JsonConvert.DeserializeObject<FilmeModel>(item["Value"].ToString()));
+                }
+
+                streamDados.Close();
+                resposta.Close();
+            }
+            return listaFilme;
         }
     }
 }
