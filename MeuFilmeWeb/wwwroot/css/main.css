@@ -190,13 +190,13 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: .42rem .45rem .4rem .45rem;
+    padding: .4rem .45rem;
     background: var(--white-color);
     border-radius: 5px;
 }
 
 .search input {
-    font-size: .8rem;
+    font-size: .95rem;
     font-family: 'Raleway', sans-serif;
     margin-right: -2px;
     border: none;
@@ -204,7 +204,6 @@ header {
     border-bottom-left-radius: 4px;
     min-width: 280px;
 }
-.search input:focus { color: var(--dark-blue-color); }
 
 .search button {
     display: inline-block;
