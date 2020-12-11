@@ -78,9 +78,9 @@
         <!--Navigation-->
         <nav id="navigation">
             <!--Main Menu-->
-            @*<ul class="main-menu center">
-                    <li><a href="/">Home</a></li>
-                </ul>*@
+            <ul class="main-menu center">
+                <li><a href="#develop-slider" class="active-link" disable-link>Home</a></li>
+            </ul>
 
             <!--SideNav-->
             <ul id="navbar" class="side-nav">
@@ -123,29 +123,29 @@
 
                 @foreach (var filme in @Model.filmes)
                 {
-                    <div class="results-movies-found" id="movie-found-@filme.Id">
-                        @if (!string.IsNullOrEmpty(@filme.Poster))
+                <div class="results-movies-found" id="movie-found-@filme.Id">
+                    @if (!string.IsNullOrEmpty(@filme.Poster))
                         {
-                            <div class="movies-found-image">
-                                <a href="/Filme/@filme.Id/@Model.pesquisa">
-                                    <img src="@string.Format("https://image.tmdb.org/t/p/w92{0}",@filme.Poster)" alt="@filme.Nome">
-                                </a>
-                            </div>
+                    <div class="movies-found-image">
+                        <a href="/Filme/@filme.Id/@Model.pesquisa">
+                            <img src="@string.Format("https://image.tmdb.org/t/p/w92{0}",@filme.Poster)" alt="@filme.Nome">
+                        </a>
+                    </div>
                         }
 
-                        <div class="movies-found-title">
-                            <a href="/Filme/@filme.Id/@Model.pesquisa">
-                                @if (@filme.DataLancamento.HasValue)
+                    <div class="movies-found-title">
+                        <a href="/Filme/@filme.Id/@Model.pesquisa">
+                            @if (@filme.DataLancamento.HasValue)
                                 {
-                                    <p>@filme.Nome (@filme.DataLancamento.Value.Year)</p>
+                            <p>@filme.Nome (@filme.DataLancamento.Value.Year)</p>
                                 }
                                 else
                                 {
-                                    <p>@filme.Nome</p>
+                            <p>@filme.Nome</p>
                                 }
-                            </a>
-                        </div>
+                        </a>
                     </div>
+                </div>
                 }
             </div>
             <!--end Titles Found-->
