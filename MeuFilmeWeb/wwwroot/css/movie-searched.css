@@ -1,10 +1,16 @@
 /********** MOVIE SEARCHED PAGE **********/
 /** HEADER **/
+/* Navigation */
+.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
 /* Banner */
 .banner {
     background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(../img/star-wars/yoda.jpg) top no-repeat;
     background-size: cover;
-    height: 58vh;
+    height: 57,5vh;
 }
 
 @keyframes move-banner-title {
@@ -48,6 +54,8 @@
 /** end HEADER **/
 
 /** RESULTS **/
+section.results {padding: 3.4rem 3rem 3rem 3rem;}
+
 .results-content {
     display: grid;
     grid-template-columns: 38.5% 60%;
