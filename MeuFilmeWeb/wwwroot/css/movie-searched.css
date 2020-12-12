@@ -98,8 +98,8 @@ span#id-movie {font-family: 'Orbitron', sans-serif;}
     margin-left: .6rem;
 }
 
-.movies-found-title a {transition: text-shadow .5s;}
-.movies-found-title a:hover {text-shadow: 1px 1px 3px #dd7d45;}
+.movies-found-title a {transition: color .5s;}
+.movies-found-title a:hover {color: #c57805;}
 
 /* Slider */
 .movies-item {
