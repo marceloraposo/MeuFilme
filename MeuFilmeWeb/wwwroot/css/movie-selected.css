@@ -198,7 +198,7 @@
 }
 
 .recommended-movies-item p {transition: all .5s;}
-.recommended-movies-item p:hover {color: #ffa500;}
+.recommended-movies-item p:hover {color: #c57805;}
 
 .recommended-movies-image img {
     width: 92px;
