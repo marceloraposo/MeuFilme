@@ -2,7 +2,7 @@
 /** HEADER **/
 /* Banner */
 .banner {
-    background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(../img/star-wars/walkers.jpg) top no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(../img/disney/disney.jpg) top no-repeat;
     background-size: cover;
     height: 45vh;
 }
