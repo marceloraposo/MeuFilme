@@ -28,7 +28,7 @@
 
 /** MOVIE SELECTED **/
 .selected-results {
-    padding: 3rem 2.8rem 4rem 2.8rem;
+    padding: 3rem 2.8rem 4.5rem 2.8rem;
     margin-top: 10px;
 }
 
@@ -197,13 +197,18 @@
     margin-bottom: 1rem;
 }
 
+.recommended-movies-item p {transition: all .5s;}
+.recommended-movies-item p:hover {color: #ffa500;}
+
 .recommended-movies-image img {
     width: 92px;
     height: 120px;
     display: block;
     margin-right: .6rem;
     border-radius: 2px;
+    transition: all .5s;
 }
+.recommended-movies-image img:hover {opacity: .5}
 
 /* Media Queries - Selected */
 @media(max-width: 880px) {
