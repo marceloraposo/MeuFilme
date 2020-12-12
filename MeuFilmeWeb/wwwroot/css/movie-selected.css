@@ -157,7 +157,7 @@
     grid-template-columns: 58% 38%;
     column-gap: 3rem;
     margin-top: -1rem;
-    padding: 2rem 2.8rem 2.5rem 2.8rem;
+    padding: 3rem 2.8rem 2.5rem 2.8rem;
 }
 
 .movie-info {padding: 0 .5rem;}
